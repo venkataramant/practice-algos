@@ -12,8 +12,6 @@ class Solution(object):
             subInt = (tempNum ) % (pow(10, k))
             if subInt != 0 and num % subInt == 0:
                 kBeautity += 1
-                
-            print(subInt, "-->", kBeautity)
             tempNum=tempNum / 10
                         
         return kBeautity
