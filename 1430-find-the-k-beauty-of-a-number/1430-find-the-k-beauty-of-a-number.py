@@ -5,6 +5,24 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
+        subStringLen = k
+        kBeautity = 0
+        tempNum = num 
+        while(tempNum >= pow(10, k-1)):
+            subInt = (tempNum ) % (pow(10, k))
+            if subInt != 0 and num % subInt == 0:
+                kBeautity += 1
+                
+            print(subInt, "-->", kBeautity)
+            tempNum=tempNum / 10
+                        
+        return kBeautity
+    def divisorSubstrings2(self, num, k):
+        """
+        :type num: int
+        :type k: int
+        :rtype: int
+        """
         strInt = str(num)
         strIntLen = len(strInt)
         subStringLen = k
