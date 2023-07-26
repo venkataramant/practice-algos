@@ -14,8 +14,10 @@ class Solution:
         while(left + 1 < right):
             mid = (left + right) // 2
             
-            midValue = self.getValue(matrix, mid, rowN)
+            #midValue = self.getValue(matrix, mid, rowN)
             # print("mid,", mid, midValue)
+            midM, midN = mid // rowN, mid % rowN
+            midValue = matrix[midM][midN]
             if target == midValue:
                 return True
             elif target > midValue:
@@ -24,10 +26,14 @@ class Solution:
                 right = mid
         print(left, right)
         if left < (rowM * rowN):
-              if target == self.getValue(matrix, left, rowN):
+            midM, midN = left // rowN, left % rowN
+            midValue = matrix[midM][midN]
+            if target == midValue:
                   return True
         if right < (rowM * rowN):
-              if target == self.getValue(matrix, right, rowN):
+            midM, midN = right // rowN, right % rowN
+            midValue = matrix[midM][midN]
+            if target == midValue:
                   return True
         return False
     
