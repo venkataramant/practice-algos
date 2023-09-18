@@ -1,0 +1,78 @@
+
+			UseCases
+1. half interval problems
+
+			Patterns
+invert binary search (Pattern-1)
+--------------------------------------------------------------
+		---------------------
+		left = 0
+		right = size of array
+		-----------------------
+		while (left + 1 < right)
+		  mid = (left + right) / 2
+		
+		  if (array[mid] == target)
+		    return mid
+		  else if (array[mid] < target)  
+		    continue search in right side  
+		  else  
+		    continue search in left side
+		----------------------
+		if (array[left] == target) (<=)
+		  return left
+		
+		return -1/right
+------------------------------------------------------------------------------------
+Pattern-2
+		def binarySearch(nums, target):
+		    """
+		    :type nums: List[int]
+		    :type target: int
+		    :rtype: int
+		    """
+		    if len(nums) == 0:
+		        return -1
+		
+		    left, right = 0, len(nums) - 1
+		    while left < right:
+		        mid = (left + right) // 2
+		        if nums[mid] == target:
+		            return mid
+		        elif nums[mid] < target:
+		            left = mid + 1
+		        else:
+		            right = mid
+		
+		    # Post-processing:
+		    # End Condition: left == right
+		    if nums[left] == target:
+		        return left
+		    return -1
+------------------------------------------------------------------------------------------------------------------------------
+			Pattern-3
+
+def binarySearch(nums, target):
+    """
+    :type nums: List[int]
+    :type target: int
+    :rtype: int
+    """
+    if len(nums) == 0:
+        return -1
+
+    left, right = 0, len(nums) - 1
+    while left + 1 < right:
+        mid = (left + right) // 2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            left = mid
+        else:
+            right = mid
+
+    # Post-processing:
+    # End Condition: left + 1 == right
+    if nums[left] == target: return left
+    if nums[right] == target: return right
+    return -1
