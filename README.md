@@ -45,21 +45,6 @@
     H. Greedy
 
 
-# Definitions
-    1. Anagram
-         2 words are anagram if they contains same number of characters and values (in any order)
-            world == rowld
-            map =/= mat
-    2. SubString [all characters between 2 ponters and Ordered]
-        part of any String [in ORDER]
-        world 
-            Correct - wor,worl, world 
-            Wrong   - (word,row,lord)
-    3. SubSequence (any characters between 2 pointers and maintained relative positions)
-        part of any String (Need not be in order)
-
-           
-
 
 # **Big-O Notation**
 
