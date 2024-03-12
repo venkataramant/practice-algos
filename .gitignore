@@ -1,2 +1,12 @@
 .project
 .pydevproject
+learn-microservices/.idea/
+.DS_Store
+.project2
+.vscode/launch.json
+.vscode/tasks.json
+.classpath
+.settings/
+c_dsa
+others
+.vscode/settings.json

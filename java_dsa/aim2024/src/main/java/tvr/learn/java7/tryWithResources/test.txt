@@ -1,0 +1,2 @@
+first myautoClose Resource
+second line
