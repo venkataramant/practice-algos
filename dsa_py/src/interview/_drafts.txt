@@ -1,0 +1,51 @@
+class Solution:
+    def minDistance(self, word1: str, word2: str) -> int:
+        
+        memo = [[-1]*len(word2) for _ in range(len(word1))]
+
+        def rec(i, j):
+            if i == len(word1) and j==len(word2):
+                return 0
+
+            if i == len(word1):
+                return len(word2) - j
+
+            if j == len(word2):
+                return len(word1) - i
+            
+            if memo[i][j] != -1:
+                return memo[i][j]
+
+            if word1[i] == word2[j]:
+                memo[i][j] = rec(i+1, j+1)
+            else:
+                memo[i][j] = 1 + min(
+                    rec(i, j+1), # Insert
+                    rec(i+1, j), # Delete
+                    rec(i+1, j+1) # Replace
+                )
+            return memo[i][j]
+
+        return rec(0,0)
+
+
+
+def getMinProblemCount(N: int, S: List[int]) -> int:
+  
+  ans=[]
+  possibilities=set()
+  index=0
+  prev_possiblity=0
+  while(index<len(S)):
+    if S[index] not in possibilities:
+      next_ans=1
+      if S[index]>=2:
+          next_ans=2
+      len_p=len(possibilities)
+      new_possibilities=set()
+      for num in possibilities:
+         if num+ans not in possibilities:
+            new_possibilities.add(num+ans)
+      possibilities.update(new_possibilities)
+          
+  return len(ans)

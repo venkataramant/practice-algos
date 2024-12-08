@@ -1,0 +1,106 @@
+# Your previous Plain Text content is preserved below:
+
+# ''You are given two arrays, for eg. 
+
+# A = [5, 10, 2, 6, 1, 8, 6, 12] (M)
+# B = [6, 5, 11, 4, 2, 3, 7] (N)
+
+# For each element in 1st array (A) , count the numbers of elements less than or equal to it in 2nd array (B).
+
+# A [1,2,5,6,6,8,10,12]
+
+# [5, 10, 2, 6, 1, 8, 6, 12]
+# B [2,3,4,5,6,7,11] 100
+
+
+# i=2
+# j=1
+# ----
+# ans[0,1,4,]
+# Output: [4, 6, 1, 5, 0, 6, 5, 7]
+
+# #Not sorted
+# #All are valid integers
+# #Numbers can repeat in both A and B
+
+# App1: BF MxN
+
+# App2: MlogM + NlogN  + (remap from A)
+
+# App3: MlogN + NlogN =>  (M+N) logN
+
+A=[5,5, 10, 2, 6, 1, 8, 6, 12]
+#A=[5,2,3,7,6,10,8,12]
+B = [6, 5,5, 11, 4, 2, 3, 7]
+# A=[2,3,4,7,6]
+# B=[2,2,2,3,3,4,5]
+def counter(A,B):
+    B.sort()
+    print(B)
+    print(A)
+    ans=[]
+    for a in A:
+        l,r=0,len(B)-1
+        while(l<=r):
+            m=(l+r)//2
+            
+            target=B[m]
+            if target==a:
+                l=m+1
+            elif target<a:
+                l=m+1
+            else:
+                r=m-1
+        print(l,m,r)
+        ans.append(r+1)
+    print(ans)
+    return ans
+counter(A,B)
+        
+
+# Given a really large file, of eg. 100 GB, 
+# how would your sort it 
+#if your memory was only 4 GB
+# Type of file: <4bytes><4bytes> .... 100 GB
+# Delimiter is size = 4 bytes
+
+
+# 1000 numbers 
+# 20 numbers (40
+# disk space is unlimited
+
+# 50 files are divied and sorted
+# [-100, 1, 20][ 20, 25, 30] [3, 21, 99] .. 50 files
+# 5 files  (20 number)
+# [-100,1,3,20,20,] ( Merge1)
+
+# Based upon dimiliter chunk file of size 2GB , create 50 files
+# every file is sorted first
+# for every 50 files compare and merge
+# Take min value from reach file (next available token)
+# compare 
+# []
+#const fileLocations = [A, B , C]
+
+# A = [5, 10, 2, 49,6, 1, 8, 6, 12]
+# B = [6, 5, 30,11, 4,100, 2, 3, 7]
+# C= [4,89,349,62]
+# i,j,k
+
+#[ 20, 25, 30] [3, 21, 99] [-100, 1, 20]
+heap (-100,C)(3,B),(20,A)
+
+top
+-100 C
+if C:
+    
+
+#100 GB -> N (# of integer)
+# 2 GB. -> C (# of integers)
+#   50  -> K (N/C) # of files
+
+# (10)TG =N*S
+#  (2) C*S
+# N/C files k
+# c(log(c))*k # to start each indvididual files
+#  c(log(c))*k  + O(N) [N(Klog(K)]
